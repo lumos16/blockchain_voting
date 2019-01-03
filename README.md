@@ -19,7 +19,7 @@ Now we need to instantiate the channel(generate the channel block) by using the 
 This will make the ordering service and the peer join the channel.<br/>
 Next, we have to make other peers join the channel. We can do this by overriding the CLI properties defined through this command<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.hyperledger.testing.com/users/Admin@org2.hyperledger.testing.com/msp
-CORE_PEER_LOCALMSPID=Org2MSP CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.hyperledger.testing.com/peers/peer0.org2.hyperledger.testing.com/tls/ca.crt peer channel join -b {your channel name}.block<br />
+CORE_PEER_LOCALMSPID=Org2MSP &nbsp;&nbsp;&nbsp;&nbsp;CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.hyperledger.testing.com/peers/peer0.org2.hyperledger.testing.com/tls/ca.crt peer channel join -b {your channel name}.block<br />
 We'll have to update the channel definition to define the anchor peer for the organization i.e let the channel know of the anchor peers.<br />
 &nbsp;&nbsp;&nbsp;&nbsp;peer channel update -o orderer.hyperledger.testing.com:7050 -c myanchorchannel -f ./channel &nbsp;&nbsp;&nbsp;&nbsp;artifacts/Org1MSPanchors.tx --tls –cafile &nbsp;&nbsp;&nbsp;&nbsp;/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/hyperledger.testing.com/orderers/orde
 &nbsp;&nbsp;&nbsp;&nbsp;rer.hyperledger.testing.com/msp/tlscacerts/tlsca.hyperledger.testing.com-cert.pem<br />
